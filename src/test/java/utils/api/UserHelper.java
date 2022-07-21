@@ -33,13 +33,64 @@ public class UserHelper extends RequestHelper {
 
     public Response getAllUser() {
         String url = prefixUrl + APIConstant.END_POINTS;
-        Map<String,String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
         map.put("Authorization", "Bearer " + APIConstant.PRIMARY_TOKEN);
-        Headers headers = createHeaders(map);
         Response response = sendRequest(
                 APIConstant.RequestType.GET,
                 url,
-                headers, "");
+                createHeaders(map), "");
         return response;
+    }
+
+    public Response getUser(int userId) {
+        String url = prefixUrl + APIConstant.END_POINTS;
+        Map<String, String> map = new HashMap<>();
+        map.put("Authorization", "Bearer " + APIConstant.PRIMARY_TOKEN);
+        Response response = sendRequest(
+                APIConstant.RequestType.GET,
+                url + "/" + userId,
+                createHeaders(map), "");
+        return  response;
+    }
+
+    public Response UpdateUserDetails(String userId, String name, String email, String gender, String status) {
+        String url = prefixUrl + APIConstant.END_POINTS;
+        Map<String, String> map = new HashMap<>();
+        map.put("Authorization", "Bearer " + APIConstant.PRIMARY_TOKEN);
+        JSONObject body = new JSONObject();
+        body.put("id", userId);
+        if (name != null) {
+            body.put("name", name);
+        }
+        if (gender != null) {
+            body.put("gender", gender);
+        }
+        if (email != null) {
+            body.put("email", email);
+        }
+        if (status != null) {
+            body.put("status", status);
+        }
+        Response response = sendRequest(
+                APIConstant.RequestType.PUT,
+                url + "/" + userId,
+                createHeaders(map),
+                body.toString());
+        return response;
+    }
+
+    public Response DeleteUser(String userId) {
+        String url = prefixUrl + APIConstant.END_POINTS;
+        Map<String, String> map = new HashMap<>();
+        map.put("Authorization", "Bearer " + APIConstant.PRIMARY_TOKEN);
+        JSONObject body = new JSONObject();
+        body.put("id", userId);
+        Response response = sendRequest(
+                APIConstant.RequestType.DELETE,
+                url + "/" + userId,
+                createHeaders(map),
+                body.toString());
+        return response;
+    }
 
 }
