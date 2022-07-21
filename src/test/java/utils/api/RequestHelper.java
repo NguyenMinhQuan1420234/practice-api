@@ -17,7 +17,7 @@ import java.util.Map;
 public class RequestHelper {
 
     public Response sendRequest(APIConstant.RequestType method, String url, Headers headers, Object body) {
-        RestAssured.baseURI = "https://demoqa.com";
+        RestAssured.baseURI = APIConstant.BASE_URL + APIConstant.END_POINTS;
         if (headers == null) {
             Map<String,String> map = new HashMap<>();
             headers = createHeaders(map);
