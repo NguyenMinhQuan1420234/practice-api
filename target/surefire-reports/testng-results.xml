@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-07-22T17:58:20 ICT" name="tests.UserTest" finished-at="2022-07-22T17:58:30 ICT" duration-ms="9866">
+    <groups>
+    </groups>
+    <test started-at="2022-07-22T17:58:20 ICT" name="Command line test" finished-at="2022-07-22T17:58:30 ICT" duration-ms="9866">
+      <class name="tests.UserTest">
+        <test-method signature="createUserSuccessfully()[pri:0, instance:tests.UserTest@5b94b04d]" started-at="2022-07-22T17:58:20 ICT" name="createUserSuccessfully" finished-at="2022-07-22T17:58:28 ICT" duration-ms="7315" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createUserSuccessfully -->
+        <test-method signature="getUserDetailSuccessfully()[pri:0, instance:tests.UserTest@5b94b04d]" started-at="2022-07-22T17:58:28 ICT" name="getUserDetailSuccessfully" finished-at="2022-07-22T17:58:28 ICT" duration-ms="337" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserDetailSuccessfully -->
+        <test-method signature="getUsersInSpecificPageSuccessfully()[pri:0, instance:tests.UserTest@5b94b04d]" started-at="2022-07-22T17:58:28 ICT" name="getUsersInSpecificPageSuccessfully" finished-at="2022-07-22T17:58:28 ICT" duration-ms="426" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUsersInSpecificPageSuccessfully -->
+        <test-method signature="updateUsersSuccessfully()[pri:0, instance:tests.UserTest@5b94b04d]" started-at="2022-07-22T17:58:28 ICT" name="updateUsersSuccessfully" finished-at="2022-07-22T17:58:29 ICT" duration-ms="570" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateUsersSuccessfully -->
+        <test-method signature="verifyUpdateUserBySchema()[pri:0, instance:tests.UserTest@5b94b04d]" started-at="2022-07-22T17:58:29 ICT" name="verifyUpdateUserBySchema" finished-at="2022-07-22T17:58:30 ICT" duration-ms="829" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyUpdateUserBySchema -->
+        <test-method signature="deleteUsersSuccessfully()[pri:3, instance:tests.UserTest@5b94b04d]" started-at="2022-07-22T17:58:30 ICT" name="deleteUsersSuccessfully" finished-at="2022-07-22T17:58:30 ICT" duration-ms="299" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteUsersSuccessfully -->
+      </class> <!-- tests.UserTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- tests.UserTest -->
+</testng-results>
