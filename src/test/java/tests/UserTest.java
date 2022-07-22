@@ -13,18 +13,20 @@ import static org.hamcrest.Matchers.*;
 
 public class UserTest {
     UserHelper userHelper = new UserHelper();
-
+    public static String newUserId;
     @Test
     public void createUserSuccessfully() {
-        Response response = userHelper.createUser("quan", "emailmotlandung@yahoo.com", "Male", "Active");
+        Response response = userHelper.createUser("quan", "emailbonlandung@yahoo.com", "Male", "Active");
         response.then()
                 .assertThat()
                 .statusCode(200)
                 .body("code", equalTo(201))
                 .body("data.name", equalTo("quan"))
                 .body("data.gender", equalTo("Male".toLowerCase()))
-                .body("data.mail", equalTo("emailmotlandung@yahoo.com"))
+                .body("data.email", equalTo("emailbonlandung@yahoo.com"))
                 .body("data.status", equalTo("Active".toLowerCase()));
+        newUserId = response.jsonPath().getString("data.id");
+        System.out.println(newUserId);
     }
 
     @Test
@@ -46,23 +48,23 @@ public class UserTest {
 
     @Test
     public void getUserDetailSuccessfully() {
-        Response response = userHelper.getUser(APIConstant.USER_ID);
+        Response response = userHelper.getUser(newUserId);
         String ID = "";
         response.then()
                 .assertThat()
                 .statusCode(200)
                 .body("code", equalTo(200))
-                .body("data.id", equalTo(APIConstant.USER_ID));
+                .body("data.id", equalTo(parseInt(newUserId)));
     }
 
     @Test
     public void updateUsersSuccessfully() {
-        Response response = userHelper.updateUserDetails(APIConstant.USER_ID,"Cao Ba Quat","tambaytamba@gmail.com","Female","Inactive");
+        Response response = userHelper.updateUserDetails(newUserId,"Cao Ba Quat","tambaytamba@gmail.com","Female","Inactive");
         response.then()
                 .assertThat()
                 .statusCode(200)
                 .body("code", equalTo(200))
-                .body("data.id", equalTo(parseInt(APIConstant.USER_ID)))
+                .body("data.id", equalTo(parseInt(newUserId)))
                 .body("data.name", equalTo("Cao Ba Quat"))
                 .body("data.gender", equalTo("Female".toLowerCase()))
                 .body("data.email", equalTo("tambaytamba@gmail.com"))
@@ -72,12 +74,13 @@ public class UserTest {
 
     @Test
     public void verifyUpdateUserBySchema() {
-        Response respone = userHelper.updateUserDetails(APIConstant.USER_ID,"Cao Ba Quat","tambaytamba@gmail.com","Female","Inactive");
+        System.out.println(newUserId);
+        Response respone = userHelper.updateUserDetails(newUserId,"Cao Ba Quat","tambaytamba@gmail.com","Female","Inactive");
         userHelper.verifySchema(respone, "scheme.json");
     }
-    @Test
+    @Test(priority = 3)
     public void deleteUsersSuccessfully() {
-        Response response = userHelper.deleteUser(APIConstant.USER_ID);
+        Response response = userHelper.deleteUser(newUserId);
         response.then()
                 .assertThat()
                 .statusCode(200)

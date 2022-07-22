@@ -34,6 +34,7 @@
         <json-simple.version>1.1.1</json-simple.version>
         <json-schema-validator.version>5.1.1</json-schema-validator.version>
         <org.json.version>20220320</org.json.version>
+        <allure-testng.version>2.18.1</allure-testng.version>
     </properties>
     <dependencies>
         <dependency>
@@ -132,6 +133,12 @@
             <artifactId>json-schema-validator</artifactId>
             <version>${json-schema-validator.version}</version>
             <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure-testng.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.json/json -->
 <!--        <dependency>-->
