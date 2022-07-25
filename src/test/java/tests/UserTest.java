@@ -14,6 +14,8 @@ import static org.hamcrest.Matchers.*;
 public class UserTest {
     UserHelper userHelper = new UserHelper();
     public static String newUserId;
+
+    // dung hamcrest de assert, test case nen doc lap (update // createUSer) , moi endpoint la 1 test suite api
     @Test
     public void createUserSuccessfully() {
         Response response = userHelper.createUser("quan", "emailbonlandung@yahoo.com", "Male", "Active");
@@ -78,6 +80,7 @@ public class UserTest {
         Response respone = userHelper.updateUserDetails(newUserId,"Cao Ba Quat","tambaytamba@gmail.com","Female","Inactive");
         userHelper.verifySchema(respone, "scheme.json");
     }
+    // tao lai user roi delete
     @Test(priority = 3)
     public void deleteUsersSuccessfully() {
         Response response = userHelper.deleteUser(newUserId);
